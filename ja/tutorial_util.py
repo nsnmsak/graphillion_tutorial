@@ -65,7 +65,7 @@ def draw_subgraph(universe, subgraph=None):
     else:
         subgraph = set(subgraph)
 
-    pos = nx.nx_agraph.pygraphviz_layout(g, 'dot')
+    pos = nx.nx_agraph.graphviz_layout(g, 'dot')
     nx.draw_networkx_nodes(g, pos, node_color='#FFFFFF', edgecolors='#000000')
     edge_weights = []
     edge_colors = []
