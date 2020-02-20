@@ -4,6 +4,7 @@
 from graphillion import GraphSet
 from graphviz import Digraph
 import networkx as nx
+import json
 import matplotlib.pyplot as plt
 from IPython.display import Image
 
@@ -56,6 +57,31 @@ def dump2zdd(arr):
 
     return nodes
 
+def _encode_digit(val):
+    if isinstance(val, int):
+        return '_int' + str(val)
+    return val
+    
+def _decode_digit(val):
+    if isinstance(val, str) and val.startswith('_int'):
+        return int(val[4:])
+    return val
+
+
+def _graph2nx_layout(graph):
+    dot = Digraph()
+    for u, v in graph.edges:
+        u = _encode_digit(u)
+        v = _encode_digit(v)
+        dot.edge(u, v)
+    json_obj = json.loads(dot.pipe(format='json'))
+    positions = {}
+    for node in json_obj['objects']:
+        name = _decode_digit(node['name'])
+        pos_pair = tuple(float(x) for x in  node['pos'].split(','))
+        positions[name] = pos_pair
+
+    return positions
 
 def draw_subgraph(universe, subgraph=None):
     g = nx.Graph(sorted(universe))
@@ -65,7 +91,7 @@ def draw_subgraph(universe, subgraph=None):
     else:
         subgraph = set(subgraph)
 
-    pos = nx.nx_agraph.graphviz_layout(g, 'dot')
+    pos = _graph2nx_layout(g)
     nx.draw_networkx_nodes(g, pos, node_color='#FFFFFF', edgecolors='#000000')
     edge_weights = []
     edge_colors = []
