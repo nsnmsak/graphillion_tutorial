@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from graphillion import GraphSet, tutorial
-import pygraphviz as pgv
+from graphillion import GraphSet
+from graphviz import Digraph
 import networkx as nx
 import matplotlib.pyplot as plt
 from IPython.display import Image
@@ -10,6 +10,7 @@ from IPython.display import Image
 def zdd_size(graph_set):
     zdd = dump2zdd(graph_set.dumps().split("\n"))
     return len(zdd)
+
 
 def draw_zdd(graph_set, universe=GraphSet.universe()):
     zdd = dump2zdd(graph_set.dumps().split("\n"))
@@ -21,6 +22,8 @@ def draw(zdd, labels):
     dot_str_lines.append("digraph top {")
     dot_str_lines.append('node[ colorscheme = "rdylgn11", color = 3];')
 
+    dot = Digraph()
+
     same_label_nodes = {}
     for nid in zdd:
         vals = zdd[nid]
@@ -30,21 +33,16 @@ def draw(zdd, labels):
         if label not in same_label_nodes:
             same_label_nodes[label] = []
         same_label_nodes[label].append(nid)
+        dot.node(nid, str(labels[int(label)-1]))
+        dot.edge(nid, lo, style='dashed')
+        dot.edge(nid, hi, style='solid')
 
-        dot_str_lines.append(f'"{nid}" [label="{labels[int(label)-1]}"];')
-        dot_str_lines.append(f'"{nid}" -> "{lo}" [style=dashed];')
-        dot_str_lines.append(f'"{nid}" -> "{hi}" [style=solid];')
-
+    dot.node('T', '1', shape='square')
+    dot.node('B', '0', shape='square')
     for labels in same_label_nodes.values():
-        dot_str_lines.append("{rank= same;" + "; ".join(labels) + ";}")
-    dot_str_lines.append('"T" [shape=square, label="1"];')
-    dot_str_lines.append('"B" [shape=square, label="0"];')
-
-    dot_str_lines.append("{rank=same; T; B;}")
-    dot_str_lines.append("}")
-    dot_str = "\n".join(dot_str_lines)
-    A = pgv.AGraph(dot_str)
-    return Image(A.draw(format='png', prog='dot'))
+        with dot.subgraph() as c:
+            c.body.append("{rank= same;" + "; ".join(labels) + ";}")
+    return dot
 
 def dump2zdd(arr):
     nodes = {}
