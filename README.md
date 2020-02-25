@@ -20,4 +20,4 @@
 
 7. [Graphillionによる最適化](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/07_answering_path_query.ipynb): Graphillionを用いることで，グラフに関する最適化問題を解くことができます．この章ではGraphillionを用いて最適化問題を解く方法と，Graphillionが得意とする最適化問題の種類について説明します．
 8. [ネットワーク信頼性の計算](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/08_network_reliability.ipynb): Graphillionの機能を活用することで，ネットワークの故障に対する強さを調べることができます．
-9. [Graphillion 実践ガイド](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/08_practtical_guide.ipynb) Graphillionで効率的に問題を解くための指針をいくつか紹介します．
+9. [Graphillion 実践ガイド](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/09_practtical_guide.ipynb) Graphillionで効率的に問題を解くための指針をいくつか紹介します．
