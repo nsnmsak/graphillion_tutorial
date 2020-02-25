@@ -13,7 +13,9 @@ def zdd_size(graph_set):
     return len(zdd)
 
 
-def draw_zdd(graph_set, universe=GraphSet.universe()):
+def draw_zdd(graph_set, universe=None):
+    if not universe:
+        universe = GraphSet.universe()
     zdd = dump2zdd(graph_set.dumps().split("\n"))
 
     return draw(zdd, universe)
