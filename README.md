@@ -1,8 +1,8 @@
 # graphillion_tutorial
 
-グラフ集合処理ライブラリ(Graphillion)[https://github.com/takemaru/graphillion/wiki] のチュートリアルです．本チュートリアルを通じて，Graphillionを用いたグラフ集合処理の基本を学ぶことができます．
+グラフ集合処理ライブラリ[Graphillion](https://github.com/takemaru/graphillion/wiki) のチュートリアルです．本チュートリアルを通じて，Graphillionを用いたグラフ集合処理の基本を学ぶことができます．
 
-チュートリアル中のコードはすべて(Google Colaboratory)[https://colab.research.google.com/]上で動かすことができます．Google Colaboratoryを利用するためにはGoogleアカウントが必要です．
+チュートリアル中のコードはすべて[Google Colaboratory](https://colab.research.google.com/)上で動かすことができます．Google Colaboratoryを利用するためにはGoogleアカウントが必要です．
 
 ## 目次
 以下のリンクから各コンテンツをGoogle Colaboratoryで開くことができます．
