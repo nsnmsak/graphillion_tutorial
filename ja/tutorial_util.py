@@ -85,7 +85,14 @@ def _graph2nx_layout(graph):
 
     return positions
 
-def draw_subgraph(universe, subgraph=None):
+def draw_universe(universe=None):
+    draw_subgraph()
+
+
+
+def draw_subgraph(subgraph=None, universe=None):
+    if not universe:
+        universe = GraphSet.universe()
     g = nx.Graph(sorted(universe))
     
     if not subgraph:
