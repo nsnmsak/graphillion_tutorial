@@ -86,7 +86,7 @@ def _graph2nx_layout(graph):
     return positions
 
 def draw_universe(universe=None):
-    draw_subgraph()
+    draw_subgraph(None, universe)
 
 
 
