@@ -12,7 +12,7 @@
 
 3. [グラフと組合せ爆発](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/03_graph_and_combinatorial_explosion.ipynb): グラフの問題を解く際，しばしば指数的に存在する部分グラフを扱わなければならない場面がでてきます．この章ではそのような組合せ爆発について解説します．
 
-4. [Graphillionに触れてみよう](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/04_graphillion_first_step.ipynb): いよいよGraphillionの説明に入ります．ま←あ有名な「数え上げお姉さん問題」を題材に，Graphillionを用いたグラフ集合処理の例を紹介します．
+4. [Graphillionに触れてみよう](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/04_graphillion_first_step.ipynb): いよいよGraphillionの説明に入ります．有名な「数え上げお姉さん問題」を題材に，Graphillionを用いたグラフ集合処理の例を紹介します．
 
 5. [Graphillionの内部](https://colab.research.google.com/github/nsnmsak/graphillion_tutorial/blob/master/ja/05_graphillion_and_zdd.ipynb): Graphillionの内部ではZDDとよばれるデータ構造が利用されています．GraphillionはZDDを意識せずとも利用することができますが，Graphillionの挙動を理解するためにはZDDの理解が不可欠です．この章ではGraphillionにおいてZDDが果たす役割について説明します．
 
