@@ -105,7 +105,7 @@ def draw_subgraph(subgraph=None, universe=None):
     edge_weights = []
     edge_colors = []
     for edge in g.edges():
-        if edge in subgraph:
+        if edge in subgraph or (edge[1], edge[0]) in subgraph:
             edge_weights.append(5)
             edge_colors.append('#FF0000')
         else:
